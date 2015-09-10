@@ -1,28 +1,51 @@
+Die bob;
+
 void setup()
 {
+	size(500,500);
 	noLoop();
 }
+
 void draw()
 {
-	//your code here
+	for(int y = 0; y <= 500; y += 50)
+	{
+		for(int x = 0; x <= 500; x += 50)
+		{
+			bob = new Die(x,y);
+			bob.show();
+		}
+	}
+	
 }
+
 void mousePressed()
 {
 	redraw();
 }
-class Die //models one single dice cube
+
+class Die 
 {
-	//variable declarations here
-	Die(int x, int y) //constructor
+	int myX, myY, dots;
+	Die(int x, int y)
 	{
-		//variable initializations here
+		roll();
+		myX = x;
+		myY = y;
+
 	}
 	void roll()
 	{
-		//your code here
+		int dots = (int)(Math.random()*0)+1;
+		if(dots == 1){
+			fill(0);
+			ellipse(25,25,10,10);
+		}
+			
 	}
 	void show()
 	{
-		//your code here
+		fill(255, 255, 255);
+		rect(myX,myY,50,50,20);
 	}
 }
