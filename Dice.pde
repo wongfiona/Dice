@@ -2,20 +2,27 @@ Die bob;
 
 void setup()
 {
-  size(500,500);
+  size(575,500);
   noLoop();
 }
 
 void draw()
 {
-  for(int y = 20; y <= 400; y += 80)
+  int total = 0;
+  background(112, 190, 224);
+  for(int y = 20; y <= 340; y += 80)
   {
     for(int x = 20; x <= 500; x += 80)
     {
       bob = new Die(x,y);
       bob.show();
+      total = total + bob.dots;
     }
   }
+  textSize(30);
+  fill(0);
+  text("Total is " + total, 190, 450);
+
 }
 
 void mousePressed()
@@ -35,7 +42,7 @@ class Die
 
   void roll()
   {
-    int dots = (int)(Math.random()*6)+1;
+    dots = (int)(Math.random()*6)+1;
     if (dots == 1){
       fill(0);
       ellipse(myX+25, myY+25, 10, 10);
@@ -68,12 +75,12 @@ class Die
     }
     else if (dots == 6){
       fill(0);
-      ellipse(myX+15, myY+12, 10, 10);
-      ellipse(myX+35, myY+12, 10, 10);
+      ellipse(myX+15, myY+11, 10, 10);
+      ellipse(myX+35, myY+11, 10, 10);
       ellipse(myX+15, myY+25, 10, 10);
       ellipse(myX+35, myY+25, 10, 10);
-      ellipse(myX+15, myY+38, 10, 10);
-      ellipse(myX+35, myY+38, 10, 10);
+      ellipse(myX+15, myY+39, 10, 10);
+      ellipse(myX+35, myY+39, 10, 10);
     }
     
   }
